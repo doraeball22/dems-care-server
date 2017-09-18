@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+
+        <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBh0w3xUi-nez7p4nxECJfGyrdsmMINl3I",
+            authDomain: "dems-care.firebaseapp.com",
+            databaseURL: "https://dems-care.firebaseio.com",
+            projectId: "dems-care",
+            storageBucket: "dems-care.appspot.com",
+            messagingSenderId: "16905724643"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="inputTitle">Title</label>
+                <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp" placeholder="Enter title" required>
+                <small id="titleHelp" class="form-text text-muted">We'll never share your title with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="inputBodyUrl">bodyUrl</label>
+                <input type="text" class="form-control" id="bodyUrl" name="bodyUrl" aria-describedby="bodyUrlHelp" placeholder="Enter bodyUrl" required>
+                <small id="bodyUrlHelp" class="form-text text-muted">We'll never share your bodyUrl with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="inputImageUrl">imageUrl</label>
+                <input type="text" class="form-control" id="imageUrl" name="imageUrl" aria-describedby="imageUrlHelp" placeholder="Enter imageUrl" required>
+                <small id="imageUrlHelp" class="form-text text-muted">We'll never share your imageUrl with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="inputAuthor">author</label>
+                <input type="text" class="form-control" id="author" name="author" aria-describedby="authorHelp" placeholder="Enter author" required>
+                <small id="authorHelp" class="form-text text-muted">We'll never share your author with anyone else.</small>
+            </div>
+
+            <button type="button" id="btnSave" onclick="saveOnClick()" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+
+
+    <script src="./app.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

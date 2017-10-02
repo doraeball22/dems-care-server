@@ -1,24 +1,26 @@
 {
-  "name": "hapi-jwt-authentication",
+  "name": "dems-care-api-server",
   "version": "0.0.0",
-  "description": "Sample API for protecting routes with JWT authentication",
+  "description": "DEMs Care api for getData",
   "main": "server.js",
   "keywords": [
+    "dems-care",
     "authentication",
     "jwt",
     "api"
   ],
-  "author": "Auth0",
+  "author": "Bon",
   "license": "MIT",
   "dependencies": {
-    "bcryptjs": "^2.3.0",
-    "boom": "^3.1.2",
-    "glob": "^7.0.0",
-    "hapi": "^13.0.0",
-    "hapi-auth-jwt": "^4.0.0",
-    "joi": "^8.0.4",
-    "joi-objectid": "^2.0.0",
-    "jsonwebtoken": "^5.7.0",
-    "mongoose": "^4.4.5"
+    "bcryptjs": "*",
+    "boom": "^6.0.0",
+    "dotenv": "^4.0.0",
+    "glob": "*",
+    "hapi": "^16.6.2",
+    "hapi-auth-jwt": "*",
+    "joi": "^11.1.1",
+    "joi-objectid": "*",
+    "jsonwebtoken": "^8.0.1",
+    "mongoose": "^4.11.14"
   }
 }

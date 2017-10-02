@@ -6,14 +6,25 @@ const mongoose = require('mongoose');
 const glob = require('glob');
 const path = require('path');
 const secret = require('./config');
+require('dotenv').config();
 
 const server = new Hapi.Server();
 
 // The connection object takes some
 // configuration, including the port
-server.connection({ port: 3000, routes: { cors: true } });
+mongoose.Promise = global.Promise;
+const dbUrl = `mongodb://${process.env.MONGO_HOST || localhost }:${process.env.MONGO_PORT || 27017 }/${process.env.DB_NAME || dems-care}`;
 
-const dbUrl = 'mongodb://localhost:27017/dems-care';
+server.connection({
+  host: "localhost",
+  port: process.env.PORT || 3000,
+  routes: {
+    cors: {
+      // change this for production
+      origin: ['*']
+    }
+  }
+});
 
 server.register(require('hapi-auth-jwt'), err => {
   // We are giving the strategy a name of 'jwt'
@@ -36,14 +47,15 @@ server.register(require('hapi-auth-jwt'), err => {
 });
 
 // Start the server
-server.start(err => {
+server.start((err) => {
   if (err) {
     throw err;
   }
   // Once started, connect to Mongo through Mongoose
-  mongoose.connect(dbUrl, {}, err => {
+  mongoose.connect(dbUrl, { useMongoClient: true }, (err) => {
     if (err) {
       throw err;
     }
   });
+  console.info(`Server started at ${server.info.uri}`);
 });

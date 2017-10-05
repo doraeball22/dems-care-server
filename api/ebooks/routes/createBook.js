@@ -1,27 +1,27 @@
 'use strict';
 
 const Boom = require('boom');
-const Ebook = require('../model/Ebook');
+const Book = require('../model/Book');
 
 module.exports = {
   method: 'POST',
-  path: '/api/ebooks',
+  path: '/api/books',
   config: {
     handler: (req, res) => {
-      let ebook = new Ebook();
+      let book = new Book();
 
-      ebook.title = req.payload.title;
-      ebook.bodyUrl = req.payload.bodyUrl
-      ebook.imageUrl = req.payload.imageUrl;
-      ebook.author = req.payload.author;
+      book.title = req.payload.title;
+      book.bodyUrl = req.payload.bodyUrl
+      book.imageUrl = req.payload.imageUrl;
+      book.author = req.payload.author;
   
-      ebook.save((err, ebook) => {
+      book.save((err, book) => {
         if (err) {
           throw Boom.badRequest(err);
         }
         // If the user is saved successfully, issue a JWT
         res({
-          ebook: ebook
+          book: book
         }).code(201);
       });  
     },

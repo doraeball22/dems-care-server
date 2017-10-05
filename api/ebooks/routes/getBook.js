@@ -1,24 +1,24 @@
 'use strict';
 
-const Ebook = require('../model/Ebook');
+const Book = require('../model/Book');
 const Boom = require('boom');
 
 module.exports = {
   method: 'GET',
-  path: '/api/ebooks',
+  path: '/api/books',
   config: {
     handler: (req, res) => {
-      Ebook.find()
-        .exec((err, Ebooks) => {
+      Book.find()
+        .exec((err, Books) => {
           if (err) {
             throw Boom.badRequest(err);
           }
-          if (!Ebooks.length) {
-            throw Boom.notFound('No ebooks found!');
+          if (!Books.length) {
+            throw Boom.notFound('No Books found!');
           }
           res({
             success: true,
-            ebooks: Ebooks
+            books: Books
         }).code(200);
           
         });

@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ebookModel = new Schema({
+const bookModel = new Schema({
   title: { type: String, required: true},
   bodyUrl: { type: String, required: true },
   imageUrl: { type: String },
@@ -11,4 +11,4 @@ const ebookModel = new Schema({
   isFree : { type: Boolean, default: true}
 });
 
-module.exports = mongoose.model('Ebook', ebookModel);
+module.exports = mongoose.model('Book', bookModel);

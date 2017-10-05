@@ -11,7 +11,7 @@ module.exports = {
       let quiz = new Quiz();
 
       quiz.title = req.payload.title;
-      quiz.bodyUrl = req.payload.bodyUrl
+      quiz.body = req.payload.body;
       quiz.imageUrl = req.payload.imageUrl;
       quiz.author = req.payload.author;
   

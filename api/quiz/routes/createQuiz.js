@@ -10,10 +10,16 @@ module.exports = {
     handler: (req, res) => {
       let quiz = new Quiz();
 
+      let questionList = JSON.parse(req.payload.body);
+      
+
       quiz.title = req.payload.title;
-      quiz.body = req.payload.body;
       quiz.imageUrl = req.payload.imageUrl;
       quiz.author = req.payload.author;
+      quiz.body = questionList;
+
+      
+      
   
       quiz.save((err, quiz) => {
         if (err) {

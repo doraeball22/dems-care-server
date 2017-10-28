@@ -1,3 +1,3 @@
-const key = 'secretkey';
+const key = 'mybonsecretkey';
 
 module.exports = key;

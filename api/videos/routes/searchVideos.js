@@ -5,16 +5,21 @@ const Boom = require('boom');
 
 module.exports = {
   method: 'GET',
-  path: '/api/videos',
+  path: '/api/videos/search',
   config: {
     handler: (req, res) => {
-      Video.find()
+        const queryParams = req.query;
+        console.log(queryParams);
+
+        Video.find({'title' : {$regex : queryParams.title} })
         .exec((err, Videos) => {
           if (err) {
-            throw Boom.badRequest(err);
+            // res(Boom.badRequest(err));
+            // throw Boom.badRequest(err);
           }
           if (!Videos.length) {
-            throw Boom.notFound('No Videos found!');
+            // res(Boom.notFound('Video not found!'));
+            // throw Boom.notFound('No Videos found!');
           }
           res({
             success: true,

@@ -5,16 +5,21 @@ const Boom = require('boom');
 
 module.exports = {
   method: 'GET',
-  path: '/api/articles',
+  path: '/api/articles/search',
   config: {
     handler: (req, res) => {
-      Article.find()
+        const queryParams = req.query;
+        console.log(queryParams);
+
+        Article.find({'title' : {$regex : queryParams.title} })
         .exec((err, Articles) => {
           if (err) {
-            throw Boom.badRequest(err);
+            // res(Boom.badRequest(err));
+            // throw Boom.badRequest(err);
           }
           if (!Articles.length) {
-            throw Boom.notFound('No Articles found!');
+            // res(Boom.notFound('Article not found!'));
+            // throw Boom.notFound('No Articles found!');
           }
           res({
             success: true,

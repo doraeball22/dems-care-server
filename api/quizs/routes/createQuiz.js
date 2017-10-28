@@ -16,13 +16,12 @@ module.exports = {
       quiz.title = req.payload.title;
       quiz.imageUrl = req.payload.imageUrl;
       quiz.author = req.payload.author;
-      quiz.body = questionList;
-
-      
+      quiz.body = questionList;      
       
   
       quiz.save((err, quiz) => {
         if (err) {
+          res(Boom.badRequest(err));
           throw Boom.badRequest(err);
         }
         // If the user is saved successfully, issue a JWT

@@ -17,6 +17,7 @@ module.exports = {
   
       video.save((err, video) => {
         if (err) {
+          res(Boom.badRequest(err));
           throw Boom.badRequest(err);
         }
         // If the user is saved successfully, issue a JWT

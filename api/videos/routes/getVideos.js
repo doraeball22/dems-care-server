@@ -1,24 +1,26 @@
 'use strict';
 
-const Book = require('../model/Book');
+const Video = require('../model/Video');
 const Boom = require('boom');
 
 module.exports = {
   method: 'GET',
-  path: '/api/books',
+  path: '/api/videos',
   config: {
     handler: (req, res) => {
-      Book.find()
-        .exec((err, Books) => {
+      Video.find()
+        .exec((err, Videos) => {
           if (err) {
+            res(Boom.badRequest(err));
             throw Boom.badRequest(err);
           }
-          if (!Books.length) {
-            throw Boom.notFound('No Books found!');
+          if (!Videos.length) {
+            res(Boom.notFound('No Videos found!'));
+            throw Boom.notFound('No Videos found!');
           }
           res({
             success: true,
-            books: Books
+            videos: Videos
         }).code(200);
           
         });

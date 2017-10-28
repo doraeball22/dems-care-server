@@ -17,6 +17,7 @@ module.exports = {
   
       article.save((err, article) => {
         if (err) {
+          res(Boom.badRequest(err));
           throw Boom.badRequest(err);
         }
         // If the user is saved successfully, issue a JWT

@@ -6,7 +6,7 @@ const updateQuizSchema = require('../schemas/updateQuizSchema');
 
 module.exports = {
     method: 'PATCH',
-    path: '/api/aquizs/{id}/edit',
+    path: '/api/quizzes/{id}/edit',
     config: {
       handler: (req, res) => {
         

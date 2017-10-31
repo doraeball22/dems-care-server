@@ -5,22 +5,22 @@ const Boom = require('boom');
 
 module.exports = {
   method: 'GET',
-  path: '/api/quizs',
+  path: '/api/quizzes',
   config: {
     handler: (req, res) => {
       Quiz.find()
-        .exec((err, Quizs) => {
+        .exec((err, quizzes) => {
           if (err) {
             res(Boom.badRequest(err));
             throw Boom.badRequest(err);
           }
-          if (!Quizs.length) {
-            res(Boom.notFound('No Quizs found!'));
-            throw Boom.notFound('No Quizs found!');
+          if (!quizzes.length) {
+            res(Boom.notFound('No quizzes found!'));
+            throw Boom.notFound('No quizzes found!');
           }
           res({
             success: true,
-            quizs: Quizs
+            quizzes: quizzes
         }).code(200);
           
         });
@@ -29,7 +29,7 @@ module.exports = {
   }
 };
 
-// const mockQuizs =  {
+// const mockquizzes =  {
 //   "_id": "59d5c5a2055fa121e8b7a5cc",
 //   "author": "DEMs Care",
 //   "imageUrl": "https://images.unsplash.com/reserve/E5CwLOxQSFimIXJurfpq_IMG_6424%20(1).jpg?dpr=1&auto=compress,format&fit=crop&w=1950&h=&q=80&cs=tinysrgb&crop=",

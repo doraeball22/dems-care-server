@@ -5,7 +5,7 @@ const Boom = require('boom');
 
 module.exports = {
     method: 'DELETE',
-    path: '/api/quizs/{id}',
+    path: '/api/quizzes/{id}',
     config: {
       handler: (req, res) => {
 

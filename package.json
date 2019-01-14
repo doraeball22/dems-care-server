@@ -11,6 +11,9 @@
   ],
   "author": "Bon",
   "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "bcryptjs": "*",
     "boom": "^6.0.0",

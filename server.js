@@ -13,7 +13,7 @@ const server = new Hapi.Server();
 // The connection object takes some
 // configuration, including the port
 mongoose.Promise = global.Promise;
-const dbUrl = `mongodb://${process.env.MONGO_HOST || localhost }:${process.env.MONGO_PORT || 27017 }/${process.env.DB_NAME || dems-care}`;
+const dbUrl = `mongodb://${process.env.MONGO_HOST}/${process.env.DB_NAME}`;
 
 server.connection({
   host: "localhost",

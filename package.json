@@ -1,7 +1,8 @@
 {
   "name": "dems-care-api-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "DEMs Care api for getData",
+  "repository": "https://github.com/doraeball22/dems-care-server",
   "main": "server.js",
   "keywords": [
     "dems-care",
